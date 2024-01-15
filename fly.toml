@@ -1,13 +1,13 @@
-app = "demo-app"
+# fly.toml app configuration file generated for demo-12345 on 2024-01-15T19:36:54+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "demo-12345"
 primary_region = "lhr"
 
 [build]
   dockerfile = "Dockerfile"
-
-[[vm]]
-  cpu_kind = "shared"
-  cpus = 1
-  memory_mb = 256
 
 [[services]]
   protocol = "tcp"
@@ -25,3 +25,8 @@ primary_region = "lhr"
     path = "/"
     protocol = "http"
     tls_skip_verify = false
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256
