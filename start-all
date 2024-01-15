@@ -1,0 +1,8 @@
+#!/bin/sh
+
+TIMESTAMP=$(date +%s)
+mkdir -p /storage/logs
+
+nginx > /storage/logs/nginx-$TIMESTAMP.logs 2>&1 &
+cd be
+npm run start

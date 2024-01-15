@@ -1,0 +1,27 @@
+app = "demo-app"
+primary_region = "lhr"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 80
+
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
+
+  [[services.http_checks]]
+    interval = "10s"
+    timeout = "2s"
+    grace_period = "30s"
+    method = "get"
+    path = "/"
+    protocol = "http"
+    tls_skip_verify = false
