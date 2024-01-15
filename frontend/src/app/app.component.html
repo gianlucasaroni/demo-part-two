@@ -1,0 +1,25 @@
+<style>
+  .book-item {
+    background-color: white;
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin: 6px;
+  }
+ 
+  .book-item > p {
+    padding: 0;
+    margin: 0;
+  }
+</style>
+
+<h3>Top 10 science books:</h3>
+<div>
+  @for (book of books; track book.name) {
+    <div class="book-item"> 
+      <p>Title: <b>{{ book.name }}</b></p>
+      <p>Author: {{ book.author }}</p>
+      <p>Year: {{ book.year }}</p>
+      <p>ISBN: {{ book.isbn }}</p>
+    </div>
+  }
+</div>
