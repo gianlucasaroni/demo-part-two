@@ -15,6 +15,6 @@ jobs:
           submodules: 'true'
           token: ${{ secrets.PAT_TOKEN }}
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only -c ${{ github.workspace }}/fly.toml
+      - run: flyctl deploy --ha=false --remote-only -c ${{ github.workspace }}/fly.toml
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }} 
